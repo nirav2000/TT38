@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The 38 Times Table Challenge+</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>The 38 Times Table Challenge</h1>
+    <p class="subtitle">Fast mental multiplication training inspired by komodomath.com</p>
+    <div class="hero-badges">
+      <span>⚡ Speed rounds</span>
+      <span>🎯 Accuracy first</span>
+      <span>📈 Deep progress tracking</span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="challenge">Challenge</button>
+    <button class="tab" data-tab="fractions">Why 20× helps with fractions</button>
+    <button class="tab" data-tab="analytics">Tracking & analytics</button>
+  </nav>
+
+  <main>
+    <section id="challenge" class="panel active">
+      <div class="card controls">
+        <label>
+          Student Name
+          <input id="studentName" type="text" placeholder="Enter learner name" />
+        </label>
+        <label>
+          Focus Table
+          <select id="tableSelect"></select>
+        </label>
+        <label>
+          Questions per round
+          <select id="roundSize">
+            <option>10</option>
+            <option selected>20</option>
+            <option>30</option>
+          </select>
+        </label>
+        <button id="startBtn">Start Round</button>
+      </div>
+
+      <div class="card challenge-area" id="challengeArea">
+        <p class="prompt">Press <strong>Start Round</strong> to begin.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat"><h3>Score</h3><p id="score">0 / 0</p></div>
+        <div class="stat"><h3>Streak</h3><p id="streak">0</p></div>
+        <div class="stat"><h3>Avg Time</h3><p id="avgTime">0.00s</p></div>
+        <div class="stat"><h3>Best Table</h3><p id="bestTable">—</p></div>
+      </div>
+    </section>
+
+    <section id="fractions" class="panel">
+      <article class="card article">
+        <h2>Why learning up to 20× times tables helps with fractions</h2>
+        <p>When you know multiplication facts up to 20×, fraction work becomes faster and less stressful because fractions depend on multiplication patterns.</p>
+        <h3>1) Faster common denominators</h3>
+        <p>To add <code>3/8 + 5/12</code> you need the least common denominator. Knowing 8 and 12 facts quickly reveals <strong>24</strong>.
+          That speed comes from knowing factors and multiples beyond just 12×.</p>
+        <h3>2) Better simplification</h3>
+        <p>For <code>42/56</code>, spotting that both divide by <strong>14</strong> (or 7) is easier when 14× and related facts are familiar.</p>
+        <h3>3) Scaling fractions mentally</h3>
+        <p>Equivalent fractions like <code>7/15 = 14/30 = 21/45</code> are immediate when you can multiply confidently through 20×.</p>
+        <h3>4) Real-life confidence</h3>
+        <ul>
+          <li>Recipes: scaling ingredients by 3/2 or 5/4</li>
+          <li>Percentages: 15%, 20%, 12.5%</li>
+          <li>Ratios: maps, speed, unit rates</li>
+        </ul>
+        <p class="tip">Tip: practice times tables to 20× and then practice fraction conversions with timed rounds for best transfer.</p>
+      </article>
+    </section>
+
+    <section id="analytics" class="panel">
+      <div class="card">
+        <h2>Detailed Tracking</h2>
+        <p>Every sum is logged: user, table, question, answer, correctness, date, time, and response duration.</p>
+        <canvas id="accuracyChart" width="900" height="240" aria-label="Accuracy Chart"></canvas>
+        <div class="insights">
+          <div>
+            <h3>Strengths</h3>
+            <ul id="strengths"></ul>
+          </div>
+          <div>
+            <h3>Weaknesses</h3>
+            <ul id="weaknesses"></ul>
+          </div>
+        </div>
+        <h3>Recent Answers</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th><th>Time</th><th>User</th><th>Sum</th><th>Your Answer</th><th>Correct</th><th>Time Taken</th>
+              </tr>
+            </thead>
+            <tbody id="recordsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Version <button id="versionBtn" class="linkish">1.0.1</button> · Built with HTML/CSS/Vanilla JS</p>
+  </footer>
+
+  <dialog id="versionDialog">
+    <h3>Version History</h3>
+    <ul id="versionList"></ul>
+    <button id="closeVersions">Close</button>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
